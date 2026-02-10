@@ -228,11 +228,11 @@
 
 <script setup lang="ts" async>
 import { storeToRefs } from 'pinia'
-import { Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import { useAppStore } from '~/stores/app'
 import { usePageStore } from '~/stores/page'
 import { useProductStore } from '~/stores/product'
@@ -394,14 +394,32 @@ useSeoMeta({
 watch(
 	() => showModalCall.value || showModalApplication.value || showModalProductExamples.value,
 	(isOpen) => {
-		if (process.client) {
+		if (import.meta.client) {
 			document.body.classList.toggle('modal-open', isOpen)
 		}
 	},
 )
 
+const { setBreadcrumbs } = useBreadcrumbs()
+
+const updateBreadcrumbs = () => {
+	setBreadcrumbs([
+		{ label: language.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+		{ label: language.value === 'RU' ? 'Каталог' : 'Catalog', to: '/catalog' },
+		{ label: productTitle.value, to: route.path }
+	])
+}
+
+onMounted(() => {
+	updateBreadcrumbs()
+})
+
+watch([language, productTitle], () => {
+	updateBreadcrumbs()
+})
+
 onBeforeUnmount(() => {
-	if (process.client) {
+	if (import.meta.client) {
 		document.body.classList.remove('modal-open')
 	}
 })

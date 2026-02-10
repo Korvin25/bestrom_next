@@ -44,6 +44,23 @@ const { data: pageData } = await useFetch<PageData[]>(`${config.public.apiBase}p
 const page = computed<PageData | null>(() => pageData.value?.[0] ?? null)
 
 useSeoFromPage(page, language)
+
+const { setBreadcrumbs } = useBreadcrumbs()
+
+const updateBreadcrumbs = () => {
+	setBreadcrumbs([
+		{ label: language.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+		{ label: language.value === 'RU' ? 'Политика конфиденциальности' : 'Privacy policy', to: '/politic' },
+	])
+}
+
+onMounted(() => {
+	updateBreadcrumbs()
+})
+
+watch(language, () => {
+	updateBreadcrumbs()
+})
 </script>
 
 <style scoped>

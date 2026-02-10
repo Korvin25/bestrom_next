@@ -135,6 +135,24 @@ useSeoMeta({
 			: '',
 	),
 })
+
+const { setBreadcrumbs } = useBreadcrumbs()
+
+const updateBreadcrumbs = () => {
+	setBreadcrumbs([
+		{ label: language.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+		{ label: language.value === 'RU' ? 'Новости' : 'News', to: '/news' },
+		{ label: language.value === 'RU' ? newsItem.value?.name || '' : newsItem.value?.name_en || newsItem.value?.name || '', to: route.path },
+	])
+}
+
+onMounted(() => {
+	updateBreadcrumbs()
+})
+
+watch([language, newsItem], () => {
+	updateBreadcrumbs()
+})
 </script>
 
 <style scoped>

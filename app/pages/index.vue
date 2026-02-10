@@ -147,6 +147,12 @@ import { storeToRefs } from 'pinia'
 import { useSeoFromPage } from '~/composables/useSeoFromPage'
 import { useAppStore } from '~/stores/app'
 
+const { clearBreadcrumbs } = useBreadcrumbs()
+
+onMounted(() => {
+  clearBreadcrumbs()
+})
+
 type ActivityFile = string | { file?: string } | Array<{ file?: string } | string>
 
 interface ActivityItem {

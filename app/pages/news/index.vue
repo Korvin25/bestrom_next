@@ -80,6 +80,23 @@ const resolveImage = (src: unknown) => {
 	if (src.startsWith('http')) return src
 	return `${mediaBase.value}${src.replace(/^\//, '')}`
 }
+
+const { setBreadcrumbs } = useBreadcrumbs()
+
+const updateBreadcrumbs = () => {
+	setBreadcrumbs([
+		{ label: language.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+		{ label: language.value === 'RU' ? 'Новости' : 'News', to: '/news' },
+	])
+}
+
+onMounted(() => {
+	updateBreadcrumbs()
+})
+
+watch(language, () => {
+	updateBreadcrumbs()
+})
 </script>
 
 <style scoped>

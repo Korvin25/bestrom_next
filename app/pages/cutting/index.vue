@@ -236,6 +236,23 @@ const routerPush = () => {
 		smoothScrollTo('packetSeam')
 	}
 }
+
+const { setBreadcrumbs } = useBreadcrumbs()
+
+const updateBreadcrumbs = () => {
+	setBreadcrumbs([
+		{ label: language.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+		{ label: language.value === 'RU' ? 'Раскрой пакета' : 'Package cutting', to: '/cutting' },
+	])
+}
+
+onMounted(() => {
+	updateBreadcrumbs()
+})
+
+watch(language, () => {
+	updateBreadcrumbs()
+})
 </script>
 
 <style scoped>

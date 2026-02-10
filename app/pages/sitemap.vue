@@ -57,6 +57,23 @@ const products = computed(() => productData.value || [])
 useSeoMeta({
 	title: computed(() => (language.value === 'RU' ? 'Карта сайта' : 'Sitemap')),
 })
+
+const { setBreadcrumbs } = useBreadcrumbs()
+
+const updateBreadcrumbs = () => {
+	setBreadcrumbs([
+		{ label: language.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+		{ label: language.value === 'RU' ? 'Карта сайта' : 'Sitemap', to: '/sitemap' },
+	])
+}
+
+onMounted(() => {
+	updateBreadcrumbs()
+})
+
+watch(language, () => {
+	updateBreadcrumbs()
+})
 </script>
 
 <style scoped>

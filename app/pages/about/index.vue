@@ -168,6 +168,23 @@ import PageBlocks from '~/components/PageBlocks.vue'
 import { useSeoFromPage } from '~/composables/useSeoFromPage'
 import { useAppStore } from '~/stores/app'
 
+const { setBreadcrumbs } = useBreadcrumbs()
+const { language: lang } = storeToRefs(useAppStore())
+
+onMounted(() => {
+  setBreadcrumbs([
+    { label: lang.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+    { label: lang.value === 'RU' ? 'О компании' : 'About', to: '/about' }
+  ])
+})
+
+watch(lang, () => {
+  setBreadcrumbs([
+    { label: lang.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+    { label: lang.value === 'RU' ? 'О компании' : 'About', to: '/about' }
+  ])
+})
+
 type FileSource = string | { file?: string; alt?: string } | Array<string | { file?: string; alt?: string }>
 
 const appStore = useAppStore()

@@ -262,6 +262,29 @@ const goNext = () => {
 		router.push(`/cutting/${checkType.value}/${checkSeam.value}/${wPak.value}/d_pak/${wSh.value}`)
 	}
 }
+
+const { setBreadcrumbs } = useBreadcrumbs()
+
+const updateBreadcrumbs = () => {
+	if (!objectType.value || !objectSeam.value) return
+	
+	const typeName = language.value === 'RU' ? objectType.value.name : objectType.value.name_en
+	const seamName = language.value === 'RU' ? objectSeam.value.name : objectSeam.value.name_en
+	
+	setBreadcrumbs([
+		{ label: language.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+		{ label: language.value === 'RU' ? 'Раскрой пакета' : 'Package cutting', to: '/cutting' },
+		{ label: `${typeName} - ${seamName}`, to: route.path },
+	])
+}
+
+onMounted(() => {
+	updateBreadcrumbs()
+})
+
+watch([language, objectType, objectSeam], () => {
+	updateBreadcrumbs()
+})
 </script>
 
 <style scoped>

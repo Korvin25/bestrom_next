@@ -471,6 +471,42 @@ const resolveImage = (src: unknown) => {
 	if (src.startsWith('http')) return src
 	return `${mediaBase.value}${src.replace(/^\//, '')}`
 }
+
+// Breadcrumbs
+const { setBreadcrumbs } = useBreadcrumbs()
+
+const updateBreadcrumbs = () => {
+	const crumbs = [
+		{ label: language.value === 'RU' ? 'Главная' : 'Home', to: '/' },
+		{ label: language.value === 'RU' ? 'Каталог' : 'Catalog', to: '/catalog' }
+	]
+
+	if (selectedCategory.value) {
+		const category = filters.value.find(c => c.slug === selectedCategory.value)
+		if (category) {
+			const catName = language.value === 'RU' ? category.name : category.name_en || category.name
+			crumbs.push({ label: catName, to: `/catalog/type/${category.slug}` })
+
+			if (selectedFilter.value) {
+				const filter = category.Filters?.find(f => f.slug === selectedFilter.value)
+				if (filter) {
+					const filterName = language.value === 'RU' ? filter.name : filter.name_en || filter.name
+					crumbs.push({ label: filterName, to: `/catalog/type/${category.slug}/${filter.slug}` })
+				}
+			}
+		}
+	}
+
+	setBreadcrumbs(crumbs)
+}
+
+onMounted(() => {
+	updateBreadcrumbs()
+})
+
+watch([language, selectedCategory, selectedFilter, filters], () => {
+	updateBreadcrumbs()
+})
 </script>
 
 <style scoped>
