@@ -1,10 +1,10 @@
 <template>
-	<div v-if="newsItem" class="news-detail">
+	<div v-if="newsItem" class="news-detail" itemscope itemtype="http://schema.org/NewsArticle">
 		<!-- Заголовок новости -->
 		<section class="news-header">
-			<h1 class="news-title">{{ language === 'RU' ? newsItem.name : newsItem.name_en || newsItem.name }}</h1>
+			<h1 class="news-title" itemprop="headline">{{ language === 'RU' ? newsItem.name : newsItem.name_en || newsItem.name }}</h1>
 			<div class="news-meta">
-				<span class="news-date">{{ formatDate(newsItem.published) }}</span>
+				<span class="news-date" itemprop="datePublished" :content="newsItem.published">{{ formatDate(newsItem.published) }}</span>
 			</div>
 		</section>
 
@@ -17,11 +17,12 @@
 				fit="contain"
 				background="ffffff"
 				width="920"
-				height="520" />
+				height="520"
+				itemprop="image" />
 		</div>
 
 		<!-- Контент новости -->
-		<article class="news-content-card">
+		<article class="news-content-card" itemprop="articleBody">
 			<div class="news-content" v-html="newsContent" />
 		</article>
 
@@ -134,6 +135,33 @@ useSeoMeta({
 				: newsItem.value.seo_description_en || newsItem.value.mini_description_en || newsItem.value.mini_description
 			: '',
 	),
+})
+
+const jsonLd = computed(() => {
+	if (!newsItem.value) return null
+
+	return {
+		"@context": "https://schema.org",
+		"@type": "NewsArticle",
+		"headline": language.value === 'RU' ? newsItem.value.name : newsItem.value.name_en || newsItem.value.name,
+		"image": [resolveImage(newsItem.value.img)],
+		"datePublished": newsItem.value.published,
+		"dateModified": newsItem.value.published,
+		"author": {
+			"@type": "Organization",
+			"name": "Bestrom",
+			"url": config.public.siteUrl
+		}
+	}
+})
+
+useHead({
+	script: [
+		{
+			type: 'application/ld+json',
+			innerHTML: computed(() => jsonLd.value ? JSON.stringify(jsonLd.value) : '')
+		}
+	]
 })
 
 const { setBreadcrumbs } = useBreadcrumbs()

@@ -1,7 +1,8 @@
 <template>
-	<div v-if="product" class="flex-column catalog-detail">
+	<div v-if="product" class="flex-column catalog-detail" itemscope itemtype="http://schema.org/Product">
 		<section class="section">
-			<h2>{{ productTitle }}</h2>
+			<h2 itemprop="name">{{ productTitle }}</h2>
+			<meta itemprop="description" :content="productDescription" />
 
 		<div class="slider-content card-shadow">
 			<Swiper
@@ -18,7 +19,8 @@
 						<NuxtImg
 							class="catalog-item-card-image"
 							:src="resolveMedia(slide.img)"
-							:alt="slide.alt || productTitle" />
+							:alt="slide.alt || productTitle"
+							itemprop="image" />
 					</div>
 				</SwiperSlide>
 			</Swiper>
@@ -240,6 +242,7 @@ import { useProductStore } from '~/stores/product'
 const appStore = useAppStore()
 const productStore = useProductStore()
 const pageStore = usePageStore()
+const config = useRuntimeConfig()
 const { language, serverMedia } = storeToRefs(appStore)
 const { products } = storeToRefs(productStore)
 
@@ -390,6 +393,48 @@ useSeoMeta({
 			: '',
 	),
 })
+
+const jsonLd = computed(() => {
+	if (!product.value) return null
+
+	return {
+		"@context": "https://schema.org",
+		"@type": "Product",
+		"name": productTitle.value,
+		"image": sliderItems.value.map((item: any) => resolveMedia(item.img)),
+		"description": language.value === 'RU'
+			? product.value.seo_description || product.value.description || product.value.name
+			: product.value.seo_description_en || product.value.description_en || product.value.description || product.value.name_en || product.value.name,
+		"brand": {
+			"@type": "Brand",
+			"name": "Bestrom"
+		},
+		"offers": {
+			"@type": "Offer",
+			"url": `${config.public.siteUrl}${route.path}`,
+			"priceCurrency": "RUB",
+			"price": "0",
+			"availability": "https://schema.org/InStock"
+		}
+	}
+})
+
+useHead({
+	script: [
+		{
+			type: 'application/ld+json',
+			innerHTML: computed(() => jsonLd.value ? JSON.stringify(jsonLd.value) : '')
+		}
+	]
+})
+
+const productDescription = computed(() =>
+	product.value
+		? language.value === 'RU'
+			? product.value.seo_description || product.value.description || product.value.name
+			: product.value.seo_description_en || product.value.description_en || product.value.description || product.value.name_en || product.value.name
+		: ''
+)
 
 watch(
 	() => showModalCall.value || showModalApplication.value || showModalProductExamples.value,

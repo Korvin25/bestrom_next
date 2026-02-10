@@ -153,6 +153,33 @@ onMounted(() => {
   clearBreadcrumbs()
 })
 
+const jsonLd = computed(() => ({
+	"@context": "https://schema.org",
+	"@type": "Organization",
+	"name": "Bestrom",
+	"url": config.public.siteUrl,
+	"logo": `${config.public.siteUrl}/assets/bestrom_logo.png`,
+	"sameAs": [
+		"https://vk.com/bestrom"
+	],
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"telephone": "+7 (347) 226-10-10",
+		"contactType": "sales",
+		"areaServed": ["RU", "KZ", "BY", "UZ"],
+		"availableLanguage": ["Russian", "English"]
+	}
+}))
+
+useHead({
+	script: [
+		{
+			type: 'application/ld+json',
+			innerHTML: computed(() => JSON.stringify(jsonLd.value))
+		}
+	]
+})
+
 type ActivityFile = string | { file?: string } | Array<{ file?: string } | string>
 
 interface ActivityItem {
