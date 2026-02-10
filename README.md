@@ -73,3 +73,56 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## Запуск на сервере
+
+1. Установите зависимости:
+```bash
+npm install
+```
+
+2. Создайте production-сборку:
+```bash
+npm run build
+```
+
+3. Запустите сервер:
+
+Вариант А (рекомендуемый):
+```bash
+npm start
+```
+
+Вариант Б (прямой запуск):
+```bash
+node .output/server/index.mjs
+```
+
+### Использование PM2
+
+Для управления процессом в production рекомендуется использовать PM2.
+
+Вариант А (через npm script - рекомендуется):
+```bash
+pm2 start npm --name "bestrom-frontend" -- start
+```
+
+Вариант Б (прямой запуск файла):
+```bash
+pm2 start .output/server/index.mjs --name "bestrom-frontend"
+```
+
+Команды управления:
+```bash
+# Просмотр логов
+pm2 logs bestrom-frontend
+
+# Перезапуск
+pm2 restart bestrom-frontend
+
+# Остановка
+pm2 stop bestrom-frontend
+
+# Удаление из PM2
+pm2 delete bestrom-frontend
+```
