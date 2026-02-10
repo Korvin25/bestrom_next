@@ -149,6 +149,10 @@ import { useAppStore } from '~/stores/app'
 
 const { clearBreadcrumbs } = useBreadcrumbs()
 
+const appStore = useAppStore()
+const { language, serverMedia } = storeToRefs(appStore)
+const config = useRuntimeConfig()
+
 onMounted(() => {
   clearBreadcrumbs()
 })
@@ -249,9 +253,6 @@ interface FilterCategory {
 	img?: string
 }
 
-const appStore = useAppStore()
-const { language, serverMedia } = storeToRefs(appStore)
-const config = useRuntimeConfig()
 
 const { data: pageData } = await useFetch<PageData[]>(`${config.public.apiBase}page/1/`)
 const { data: newsData } = await useFetch<NewsItem[]>(`${config.public.apiBase}news/`)
@@ -388,28 +389,29 @@ const attachTrackListener = (track: Ref<HTMLElement | null>, total: ComputedRef<
 const partnersTotal = computed(() => partners.value.length)
 const clientsTotal = computed(() => clients.value.length)
 
+const detachPartners = ref<(() => void) | undefined>(undefined)
+const detachClients = ref<(() => void) | undefined>(undefined)
+
 onMounted(() => {
-	const detachPartners = attachTrackListener(
+	detachPartners.value = attachTrackListener(
 		partnersTrack,
 		partnersTotal,
 		(value) => (partnersIndex.value = value),
 		() => partnersRaf,
 		(value) => (partnersRaf = value)
 	)
-	const detachClients = attachTrackListener(
+	detachClients.value = attachTrackListener(
 		clientsTrack,
 		clientsTotal,
 		(value) => (clientsIndex.value = value),
 		() => clientsRaf,
 		(value) => (clientsRaf = value)
 	)
+})
 
-	if (detachPartners || detachClients) {
-		onBeforeUnmount(() => {
-			detachPartners?.()
-			detachClients?.()
-		})
-	}
+onBeforeUnmount(() => {
+	detachPartners.value?.()
+	detachClients.value?.()
 })
 
 watch([partners, clients], () => {
