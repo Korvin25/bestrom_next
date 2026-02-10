@@ -48,9 +48,8 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useAppStore } from '~/stores/app'
-import { usePacketsStore } from '~/stores/packets'
 import { useSeoFromPage } from '~/composables/useSeoFromPage'
+import { useAppStore } from '~/stores/app'
 
 // --- Типы ---
 interface PacketItem {
@@ -78,17 +77,21 @@ interface PageData {
 
 // --- Сторы и конфиг ---
 const appStore = useAppStore()
-const packetsStore = usePacketsStore()
 const { language, serverRaskroy } = storeToRefs(appStore)
-const { packets, packetsSeams } = storeToRefs(packetsStore)
 const config = useRuntimeConfig()
 const route = useRoute()
 const router = useRouter()
 
-// --- SEO ---
+// --- Получение данных страницы, пакетов и швов (SSR) ---
 const { data: pageData } = await useFetch<PageData[]>(`${config.public.apiBase}page/5/`)
+const { data: packetsData } = await useFetch<any[]>(`${config.public.apiBase}packets/`)
+const { data: packetsSeamsData } = await useFetch<any[]>(`${config.public.apiBase}packetseams/`)
+
 const page = computed<PageData | null>(() => pageData.value?.[0] ?? null)
 useSeoFromPage(page, language)
+
+const packets = computed(() => packetsData.value || [])
+const packetsSeams = computed(() => packetsSeamsData.value || [])
 
 // --- Параметры маршрута ---
 const checkType = computed(() => route.params.checkType as string)
@@ -96,16 +99,6 @@ const checkSeam = computed(() => route.params.checkSeam as string)
 const wPak = computed(() => route.params.wPak as string)
 const dPak = computed(() => route.params.dPak as string)
 const wSh = computed(() => route.params.wSh as string)
-
-// --- Загрузка данных ---
-onMounted(async () => {
-	if (packets.value.length === 0) {
-		await packetsStore.loadPackets()
-	}
-	if (packetsSeams.value.length === 0) {
-		await packetsStore.loadPacketsSeams()
-	}
-})
 
 // --- Поиск объектов типа и шва ---
 const objectType = computed<PacketItem | undefined>(() =>
