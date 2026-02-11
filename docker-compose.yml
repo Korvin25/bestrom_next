@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  nuxt-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bestrom-nuxt
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NUXT_PUBLIC_API_BASE=https://bestrom.ru/api/
+      - NUXT_PUBLIC_MEDIA_BASE=https://bestrom.ru/
+      - NUXT_PUBLIC_RASKROY_BASE=https://bestrom.su/
+      - NUXT_PUBLIC_SITE_URL=https://bestrom.ru
+    networks:
+      - nuxt-network
+    # Опционально: монтирование логов
+    # volumes:
+    #   - ./logs:/app/logs
+
+networks:
+  nuxt-network:
+    driver: bridge
