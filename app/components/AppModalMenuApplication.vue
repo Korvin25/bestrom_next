@@ -591,5 +591,12 @@ const removeInput = (id: number) => {
 		min-height: 3.5rem;
 		margin: 0.5rem 1rem;
 	}
+	.modal-window {
+		padding: 1.5rem 1rem;
+		margin: 0 1rem;
+		width: calc(100% - 2rem);
+		align-self: center;
+		max-height: calc(100vh - 4rem);
+	}
 }
 </style>

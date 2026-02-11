@@ -195,26 +195,6 @@ const sendPost = async () => {
 .close-desktop {
 	display: block;
 }
-@media (max-width: 980px) {
-	h2 {
-		align-self: center;
-		text-align: center;
-		color: #2fc1ff;
-	}
-	.close-mobile {
-		display: block;
-	}
-	.close-desktop {
-		display: none;
-	}
-	.modal-window {
-		padding: 1.5rem 1rem;
-		margin: 0 0.75rem;
-		width: auto;
-		align-self: center;
-		max-height: calc(100vh - 4rem);
-	}
-}
 .modal-window {
 	position: relative;
 	padding: 1.5rem 2rem;
@@ -256,5 +236,26 @@ const sendPost = async () => {
 	justify-content: center;
 	align-items: center;
 	padding: 2rem 0;
+}
+
+@media (max-width: 980px) {
+	h2 {
+		align-self: center;
+		text-align: center;
+		color: #2fc1ff;
+	}
+	.close-mobile {
+		display: block;
+	}
+	.close-desktop {
+		display: none;
+	}
+	.modal-window {
+		padding: 1.5rem 1rem;
+		margin: 0 0.75rem;
+		width: calc(100% - 1.5rem);
+		align-self: center;
+		max-height: calc(100vh - 4rem);
+	}
 }
 </style>
