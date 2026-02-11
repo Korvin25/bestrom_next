@@ -478,7 +478,7 @@ onBeforeUnmount(() => {
 	font-weight: 700;
 	font-size: clamp(1.5rem, 1rem + 1.2vw, 2.2rem);
 	letter-spacing: 0.01em;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 .slider-content {
 	margin: 1.75rem 0 1rem 0;
@@ -601,7 +601,7 @@ onBeforeUnmount(() => {
 	box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
 }
 .details-select-item-choice {
-	color: #0f172a;
+	color: #2fc1ff;
 	background: #e0f2fe;
 	box-shadow: 0 10px 24px rgba(56, 189, 248, 0.25);
 }
@@ -631,7 +631,7 @@ onBeforeUnmount(() => {
 .details-select-settings-item h4 {
 	margin: 0.25rem 0 0.5rem 0;
 	font-weight: 600;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 
 .details-select-video {
@@ -685,7 +685,7 @@ onBeforeUnmount(() => {
 .details-select-products-item h4 {
 	font-weight: 600;
 	margin: 0 0 0.5rem 0;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 
 .details-select-inventory {
@@ -716,7 +716,7 @@ onBeforeUnmount(() => {
 .details-select-inventory-item h4 {
 	margin: 0;
 	font-weight: 600;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 .details-select-inventory-item img {
 	max-height: 9rem;
@@ -754,7 +754,7 @@ onBeforeUnmount(() => {
 .details-select-packet-item h4 {
 	font-weight: 600;
 	margin-top: 0;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 
 .solution-intro {
@@ -771,7 +771,7 @@ onBeforeUnmount(() => {
 .solution-intro-text h3 {
 	font-weight: 700;
 	font-size: 1.25rem;
-	color: #0f172a;
+	color: #2fc1ff;
 	margin: 0 0 0.75rem 0;
 }
 .solution-intro-text p {
@@ -819,7 +819,7 @@ onBeforeUnmount(() => {
 .details-select-solution-item h4 {
 	margin-top: 0;
 	font-weight: 600;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 
 .main-swiper :deep(.swiper-button-next),

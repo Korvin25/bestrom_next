@@ -101,7 +101,7 @@ useHead({
 }
 
 .breadcrumbs-current {
-  color: #0f172a;
+  color: #2fc1ff;
   font-weight: 500;
 }
 </style>

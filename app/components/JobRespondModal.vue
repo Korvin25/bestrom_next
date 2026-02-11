@@ -229,7 +229,7 @@ const sendPost = async () => {
 .modal-window {
 	position: relative;
 	background: #ffffff;
-	border-radius: 18px;
+	border-radius: 24px;
 	width: 100%;
 	max-width: 600px;
 	max-height: 90vh;
@@ -239,10 +239,10 @@ const sendPost = async () => {
 }
 
 .modal-content-wrapper {
-	padding: 2rem 2.5rem; /* Отступы как в catalog-empty-card */
+	padding: 1.5rem 2rem;
 	display: flex;
 	flex-direction: column;
-	gap: 1.25rem;
+	gap: 0.75rem;
 }
 
 /* Кнопка закрытия */
@@ -275,7 +275,7 @@ const sendPost = async () => {
 	margin: 0; 
 	font-weight: 700;
 	font-size: 1.5rem; /* ~ h2 в каталоге, там не задан явно, но обычно h2 большой */
-	color: #0f172a; /* Цвет заголовков, если не переопределен. В каталоге h2 цвета не видно но по контексту темный */
+	color: #2fc1ff; /* Цвет заголовков, если не переопределен. В каталоге h2 цвета не видно но по контексту темный */
 	/* В CatalogPage.vue h2 внутри .catalog-empty-card не имеет явных стилей цвета в CSS, значит наследует или дефолт */
 }
 

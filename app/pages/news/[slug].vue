@@ -199,7 +199,7 @@ watch([language, newsItem], () => {
 	margin: 0 0 0.75rem 0;
 	font-size: 2.5rem;
 	font-weight: 700;
-	color: #0f172a;
+	color: #2fc1ff;
 	line-height: 1.2;
 }
 
@@ -266,7 +266,7 @@ watch([language, newsItem], () => {
 .news-content :deep(h2),
 .news-content :deep(h3) {
 	margin: 2rem 0 1rem 0;
-	color: #0f172a;
+	color: #2fc1ff;
 	font-weight: 700;
 	line-height: 1.3;
 }
@@ -365,7 +365,7 @@ watch([language, newsItem], () => {
 		margin: 0 0 1.5rem 0;
 		font-size: 1.75rem;
 		font-weight: 700;
-		color: #0f172a;
+		color: #2fc1ff;
 	}
 
 	.latest-news-grid {
@@ -424,7 +424,7 @@ watch([language, newsItem], () => {
 		margin: 0;
 		font-size: 1rem;
 		font-weight: 600;
-		color: #0f172a;
+		color: #2fc1ff;
 		line-height: 1.4;
 		display: -webkit-box;
 		-webkit-line-clamp: 2;

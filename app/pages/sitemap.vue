@@ -86,7 +86,7 @@ watch(language, () => {
 	margin: 0;
 	font-size: 2.5rem;
 	font-weight: 700;
-	color: #0f172a;
+	color: #2fc1ff;
 	line-height: 1.2;
 }
 
@@ -128,7 +128,7 @@ watch(language, () => {
 	margin-bottom: 1rem;
 	font-size: 1.5rem;
 	font-weight: 600;
-	color: #0f172a;
+	color: #2fc1ff;
 	border-bottom: 1px solid #e2e8f0;
 	padding-bottom: 0.5rem;
 }

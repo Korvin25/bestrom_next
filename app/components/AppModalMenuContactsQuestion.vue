@@ -159,5 +159,54 @@ const sendPost = async () => {
 		text-align: center;
 		color: #6a6a6a;
 	}
+	.modal-window {
+		padding: 1.5rem 1rem;
+		margin: 0 0.75rem;
+		width: auto;
+		align-self: center;
+		max-height: calc(100vh - 4rem);
+	}
+}
+.modal-window {
+	position: relative;
+	padding: 1.5rem 2rem;
+	justify-content: flex-start;
+	width: 50%;
+	max-height: calc(100vh - 4rem);
+	overflow-y: auto;
+	border-radius: 24px;
+	background: #ffffff;
+}
+
+/* Скроллбар в модальном окне */
+.modal-window::-webkit-scrollbar {
+	width: 8px;
+}
+.modal-window::-webkit-scrollbar-track {
+	background: transparent;
+}
+.modal-window::-webkit-scrollbar-thumb {
+	background: rgba(15, 23, 42, 0.2);
+	border-radius: 4px;
+}
+.modal-window::-webkit-scrollbar-thumb:hover {
+	background: rgba(15, 23, 42, 0.3);
+}
+.modal-window {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
+}
+.modal-background {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(106, 106, 106, 0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem 0;
 }
 </style>

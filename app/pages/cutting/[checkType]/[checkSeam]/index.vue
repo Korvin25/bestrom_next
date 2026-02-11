@@ -301,7 +301,7 @@ watch([language, objectType, objectSeam], () => {
 }
 .info-header h2 {
 	margin: 0 0 0.5rem 0;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 .info-header-seam {
 	margin-top: 0 !important;
@@ -330,7 +330,7 @@ watch([language, objectType, objectSeam], () => {
 	scroll-margin-top: 6rem;
 }
 .dimensions-section h2 {
-	color: #0f172a;
+	color: #2fc1ff;
 }
 
 /* --- Основная карточка (стиль details из каталога) --- */
@@ -431,7 +431,7 @@ watch([language, objectType, objectSeam], () => {
 	margin: 0 0 0.15rem 0;
 }
 .info-block b {
-	color: #0f172a;
+	color: #2fc1ff;
 	font-weight: 700;
 }
 

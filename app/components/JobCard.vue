@@ -151,7 +151,7 @@ const truncate = (html: string, maxLength: number) => {
 	margin: 0;
 	font-size: 1.25rem;
 	font-weight: 700;
-	color: #0f172a;
+	color: #2fc1ff;
 	line-height: 1.4;
 	padding-bottom: 0.75rem;
 	border-bottom: 2px solid #0ea5e9;
@@ -168,7 +168,7 @@ const truncate = (html: string, maxLength: number) => {
 	margin: 0;
 	font-size: 0.875rem;
 	font-weight: 600;
-	color: #0f172a;
+	color: #2fc1ff;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 }

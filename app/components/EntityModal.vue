@@ -134,11 +134,11 @@ onMounted(() => {
 .modal-window {
 	position: relative;
 	background: #ffffff;
-	border-radius: 18px;
-	padding: 2.5rem;
+	border-radius: 24px;
+	padding: 1.5rem 2rem;
 	max-width: 700px;
 	width: 100%;
-	max-height: 90vh;
+	max-height: calc(100vh - 4rem);
 	overflow-y: auto;
 	box-shadow: 0 20px 60px rgba(15, 23, 42, 0.3);
 }
@@ -177,7 +177,7 @@ onMounted(() => {
 	margin: 0 0 2rem 0;
 	font-size: 1.75rem;
 	font-weight: 700;
-	color: #0f172a;
+	color: #2fc1ff;
 	text-align: center;
 }
 

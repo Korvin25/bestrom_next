@@ -208,7 +208,7 @@ const showRespondModal = () => {
 	margin: 0;
 	font-size: 2rem;
 	font-weight: 700;
-	color: #0f172a;
+	color: #2fc1ff;
 	line-height: 1.3;
 }
 
@@ -250,7 +250,7 @@ const showRespondModal = () => {
 	margin: 0 0 1.5rem 0;
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: #0f172a;
+	color: #2fc1ff;
 	padding-bottom: 0.75rem;
 	border-bottom: 2px solid #0ea5e9;
 }
@@ -280,7 +280,7 @@ const showRespondModal = () => {
 }
 
 .section-content :deep(strong) {
-	color: #0f172a;
+	color: #2fc1ff;
 	font-weight: 600;
 }
 

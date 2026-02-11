@@ -165,10 +165,9 @@ const sendPost = async () => {
 	background: rgba(15, 23, 42, 0.45);
 	backdrop-filter: blur(6px);
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: center;
-	overflow-y: auto;
-	overflow-x: hidden;
+	padding: 2rem 0;
 	z-index: 10000;
 }
 .close-background {
@@ -179,20 +178,31 @@ const sendPost = async () => {
 	position: relative;
 	z-index: 2;
 	width: min(720px, 92vw);
-	max-height: none;
-	overflow: visible;
-	padding: 2.5rem 2rem;
+	max-height: calc(100vh - 4rem);
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 1.5rem 2rem;
 	border-radius: 24px;
 	background: #ffffff;
 	box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25);
-	margin: 2rem 0;
 }
-.modal-background::-webkit-scrollbar {
-	width: 0;
-	height: 0;
+/* Скрываем скроллбар в модальном окне */
+.modal-window::-webkit-scrollbar {
+	width: 8px;
 }
-.modal-background {
-	scrollbar-width: none;
+.modal-window::-webkit-scrollbar-track {
+	background: transparent;
+}
+.modal-window::-webkit-scrollbar-thumb {
+	background: rgba(15, 23, 42, 0.2);
+	border-radius: 4px;
+}
+.modal-window::-webkit-scrollbar-thumb:hover {
+	background: rgba(15, 23, 42, 0.3);
+}
+.modal-window {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
 }
 .close-button {
 	position: absolute;
@@ -225,7 +235,7 @@ const sendPost = async () => {
 .send-status {
 	margin: 0;
 	font-weight: 600;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 a .catalog-name-item {
 	font-weight: normal;
@@ -237,7 +247,7 @@ a .catalog-name-item {
 	margin-top: 0.5rem;
 }
 .catalog-name-item {
-	color: #0f172a;
+	color: #2fc1ff;
 	font-weight: 700;
 }
 .form-call {
@@ -245,7 +255,7 @@ a .catalog-name-item {
 }
 .form-call .input,
 .form-call .textarea {
-	margin: 0.35rem 0 0.75rem 0;
+	margin: 0.25rem 0 0.5rem 0;
 	border-radius: 14px;
 	border: 1px solid #e2e8f0;
 	padding: 0.75rem 1rem;
@@ -280,7 +290,7 @@ a .catalog-name-item {
 @media (max-width: 980px) {
 	h2 {
 		margin: 0;
-		color: #0f172a;
+		color: #2fc1ff;
 		text-align: center;
 	}
 	.catalog-name {
@@ -290,7 +300,7 @@ a .catalog-name-item {
 	.catalog-name-item {
 		width: 100%;
 		font-size: 20px;
-		color: #0f172a;
+		color: #2fc1ff;
 		text-align: center;
 	}
 	.modal-window {

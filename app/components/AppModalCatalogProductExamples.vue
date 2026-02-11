@@ -57,8 +57,7 @@ const resolveMedia = (src: unknown) => {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	overflow-y: auto;
-	overflow-x: hidden;
+	padding: 2rem 0;
 	z-index: 10000;
 }
 .close-background {
@@ -69,20 +68,31 @@ const resolveMedia = (src: unknown) => {
 	position: relative;
 	z-index: 2;
 	width: min(920px, 95vw);
-	max-height: none;
-	overflow: visible;
-	padding: 2.5rem 2rem;
+	max-height: calc(100vh - 4rem);
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 1.5rem 2rem;
 	border-radius: 24px;
 	background: #ffffff;
 	box-shadow: 0 30px 60px rgba(15, 23, 42, 0.25);
-	margin: 2rem 0;
 }
-.modal-background::-webkit-scrollbar {
-	width: 0;
-	height: 0;
+/* Скроллбар в модальном окне */
+.modal-window::-webkit-scrollbar {
+	width: 8px;
 }
-.modal-background {
-	scrollbar-width: none;
+.modal-window::-webkit-scrollbar-track {
+	background: transparent;
+}
+.modal-window::-webkit-scrollbar-thumb {
+	background: rgba(15, 23, 42, 0.2);
+	border-radius: 4px;
+}
+.modal-window::-webkit-scrollbar-thumb:hover {
+	background: rgba(15, 23, 42, 0.3);
+}
+.modal-window {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
 }
 .close-button {
 	position: absolute;
@@ -115,7 +125,7 @@ const resolveMedia = (src: unknown) => {
 h2 {
 	text-align: center;
 	font-weight: 700;
-	color: #0f172a;
+	color: #2fc1ff;
 	margin: 0 0 1rem 0;
 }
 .details-select-products {
@@ -153,14 +163,14 @@ h2 {
 .details-select-products-item h4 {
 	font-weight: 600;
 	margin: 0 0 0.5rem 0;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 @media (max-width: 980px) {
 	h2 {
-		color: #0f172a;
+		color: #2fc1ff;
 	}
 	.modal-window {
-		margin: 1.5rem 0;
+		margin: 1rem 0 1.5rem;
 		padding: 2rem 1.5rem;
 	}
 	.close-mobile {

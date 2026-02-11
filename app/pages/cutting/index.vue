@@ -275,7 +275,7 @@ watch(language, () => {
 	font-weight: 700;
 	font-size: clamp(1.5rem, 1rem + 1.2vw, 2.2rem);
 	letter-spacing: 0.01em;
-	color: #0f172a;
+	color: #2fc1ff;
 	margin: 0 0 1.25rem 0;
 }
 
@@ -319,7 +319,7 @@ watch(language, () => {
 .packet-card-title {
 	font-weight: 600;
 	font-size: 0.95rem;
-	color: #0f172a;
+	color: #2fc1ff;
 	margin: 0 0 0.75rem 0;
 	line-height: 1.3;
 }

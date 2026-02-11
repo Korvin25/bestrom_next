@@ -150,7 +150,7 @@ const printPage = () => {
 }
 .info-header h2 {
 	margin: 0 0 0.5rem 0;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 .info-header-sub {
 	margin-top: 0 !important;

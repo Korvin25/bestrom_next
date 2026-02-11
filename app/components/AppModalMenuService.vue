@@ -537,6 +537,35 @@ const removeInput = (id: number) => {
 .del-btn {
 	background-color: #ff5454;
 }
+.modal-window {
+	position: relative;
+	padding: 1.5rem 2rem;
+	justify-content: flex-start;
+	width: 50%;
+	max-height: calc(100vh - 4rem);
+	overflow-y: auto;
+	border-radius: 24px;
+	background: #ffffff;
+}
+
+/* Скроллбар в модальном окне */
+.modal-window::-webkit-scrollbar {
+	width: 8px;
+}
+.modal-window::-webkit-scrollbar-track {
+	background: transparent;
+}
+.modal-window::-webkit-scrollbar-thumb {
+	background: rgba(15, 23, 42, 0.2);
+	border-radius: 4px;
+}
+.modal-window::-webkit-scrollbar-thumb:hover {
+	background: rgba(15, 23, 42, 0.3);
+}
+.modal-window {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
+}
 .radio-type {
 	align-items: center;
 	justify-content: flex-start;
@@ -667,6 +696,13 @@ const removeInput = (id: number) => {
 		font-size: 16px;
 		min-height: 3.5rem;
 		margin: 0.5rem 1rem;
+	}
+	.modal-window {
+		padding: 1.5rem 1rem;
+		margin: 0 0.75rem;
+		width: auto;
+		align-self: center;
+		max-height: calc(100vh - 4rem);
 	}
 	.__select__title {
 		align-items: normal;

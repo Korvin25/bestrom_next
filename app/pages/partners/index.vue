@@ -102,7 +102,7 @@ const resolveImage = (src: unknown) => {
 	margin: 0;
 	font-size: 2.25rem;
 	font-weight: 700;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 
 /* Сетка партнеров */
@@ -176,7 +176,7 @@ const resolveImage = (src: unknown) => {
 	margin: 0;
 	font-size: 1rem;
 	font-weight: 600;
-	color: #0f172a;
+	color: #2fc1ff;
 	line-height: 1.4;
 }
 

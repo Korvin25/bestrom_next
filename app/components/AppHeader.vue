@@ -43,7 +43,7 @@ const showModalMenuContactsCall = ref(false)
 const showModalMenuContactsQuestion = ref(false)
 
 const lockBody = (isLocked: boolean) => {
-	if (process.client) {
+	if (import.meta.client) {
 		document.body.classList.toggle('modal-open', isLocked)
 	}
 }
@@ -98,7 +98,7 @@ watch(showModalMenuContactsQuestion, (val) => lockBody(val))
 	margin: 0;
 	font-size: 1.25rem;
 	letter-spacing: 0.08em;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 .logo-img {
 	width: 36px;

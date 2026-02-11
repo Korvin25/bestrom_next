@@ -645,6 +645,7 @@ watch([language, selectedCategory, selectedFilter, filters], () => {
 .filter-option-text {
 	font-size: 0.95rem;
 	text-align: center;
+	margin: auto;
 }
 .catalog-grid {
 	display: grid;
@@ -696,7 +697,7 @@ watch([language, selectedCategory, selectedFilter, filters], () => {
 .catalog-card-text h3 {
 	margin: 0 0 0.5rem 0;
 	font-size: 1.1rem;
-	color: #0f172a;
+	color: #2fc1ff;
 }
 .catalog-card-divider {
 	width: 100%;
