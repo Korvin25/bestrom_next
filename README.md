@@ -126,3 +126,48 @@ pm2 stop bestrom-frontend
 # Удаление из PM2
 pm2 delete bestrom-frontend
 ```
+
+## Запуск в Docker (Рекомендуется для production)
+
+Для удобного развертывания и изоляции окружения используется Docker и Docker Compose.
+
+### Требования
+- Docker
+- Docker Compose
+
+### Быстрый старт
+
+1. Сборка и запуск контейнера:
+```bash
+docker-compose up -d --build
+```
+
+2. Проверка статуса:
+```bash
+docker-compose ps
+```
+
+3. Просмотр логов:
+```bash
+docker-compose logs -f
+```
+
+### Обновление приложения
+
+Для обновления приложения после внесения изменений в код:
+
+```bash
+# Остановка старого контейнера
+docker-compose down
+
+# Пересборка образа без использования кэша (для гарантии обновления)
+docker-compose build --no-cache
+
+# Запуск в фоновом режиме
+docker-compose up -d
+```
+
+### Остановка
+```bash
+docker-compose down
+```
