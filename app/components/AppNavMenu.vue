@@ -390,6 +390,7 @@ const showModalMenuContactsClick = () => {
 	background: transparent;
 	border-radius: 12px;
 	padding: 0.35rem 0.5rem;
+	color: #6a6a6a;
 }
 .nav-item.text.text-hover {
 	transform: translateX(2px);
