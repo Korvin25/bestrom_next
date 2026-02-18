@@ -22,10 +22,10 @@
 				<img :src="item.icon" :alt="item.labelRu" />
 			</NuxtLink>
 			<button
-				:class="hoverItem === 5 ? 'img-hover' : ''"
+				:class="hoverItem === 14 ? 'img-hover' : ''"
 				class="nav-item img"
 				type="button"
-				@mouseenter="hoverItem = 5"
+				@mouseenter="hoverItem = 14"
 				@mouseleave="hoverItem = 0"
 				@click="showModalMenuService = true">
 				<img src="/assets/menu-item-5,8.png" alt="service" />
@@ -96,10 +96,10 @@
 				<p>{{ language === 'RU' ? item.labelRu : item.labelEn }}</p>
 			</NuxtLink>
 			<button
-				:class="hoverItem === 5 ? 'text-hover' : ''"
+				:class="hoverItem === 14 ? 'text-hover' : ''"
 				class="nav-item text"
 				type="button"
-				@mouseenter="hoverItem = 5"
+				@mouseenter="hoverItem = 14"
 				@mouseleave="hoverItem = 0"
 				@click="showModalMenuService = true">
 				<p>{{ language === 'RU' ? 'Сервис' : 'Service' }}</p>
