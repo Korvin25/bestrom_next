@@ -606,7 +606,6 @@ const activityImage = computed(() => {
 	display: grid;
 	place-items: center;
 	border-radius: 16px;
-	background: rgba(47, 193, 255, 0.08);
 	transition: transform 0.25s ease, background 0.25s ease;
 }
 .selection-icon-image {
@@ -615,7 +614,6 @@ const activityImage = computed(() => {
 }
 .selection-card:hover .selection-icon {
 	transform: scale(1.08);
-	background: rgba(47, 193, 255, 0.16);
 }
 .selection-title {
 	margin: 0;
