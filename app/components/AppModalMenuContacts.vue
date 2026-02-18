@@ -31,8 +31,8 @@
 				frameborder="0"
 				allowfullscreen="true"
 				width="100%"
-				height="100%"
-				style="display: block"></iframe>
+				height="350"
+				style="display: block; border-radius: 12px; margin-top: 1rem; min-height: 350px; height: 350px;"></iframe>
 			<a class="btn yandex-href" href="https://yandex.ru/maps/?rtext=~55.809879, 37.335034">
 				<p>
 					{{ language === 'RU' ? 'Построить маршрут в Яндекс.Карты' : 'Build a route in Yandex.Maps' }}
