@@ -79,14 +79,11 @@
 				</button>
 				<div ref="partnersTrack" class="partners-track">
 					<div v-for="partner in partners" :key="partner.id" class="partner-slide" @click="openCustomer(partner)">
-					<NuxtImg
-						v-if="partner.logo"
-						:src="resolveImage(partner.logo)"
-						:alt="partner.alt || partner.name"
-						fit="contain"
-						background="ffffff"
-						width="180"
-						height="120" />
+						<NuxtImg
+							v-if="partner.logo"
+							:src="resolveImage(partner.logo)"
+							:alt="partner.alt || partner.name"
+							class="partner-logo" />
 					</div>
 				</div>
 				<div v-if="partners.length > 1" class="slider-dots" aria-hidden="true">
@@ -113,10 +110,7 @@
 						v-if="client.logo"
 						:src="resolveImage(client.logo)"
 						:alt="client.alt || client.name"
-						fit="contain"
-						background="ffffff"
-						width="180"
-						height="120" />
+						class="partner-logo" />
 					</div>
 				</div>
 				<div v-if="clients.length > 1" class="slider-dots" aria-hidden="true">
@@ -641,6 +635,7 @@ const activityImage = computed(() => {
 }
 .partner-slide {
 	flex: 0 0 200px;
+	height: 150px;
 	scroll-snap-align: center;
 	display: flex;
 	align-items: center;
@@ -657,6 +652,13 @@ const activityImage = computed(() => {
 	transform: translateY(-4px);
 	border-color: rgba(47, 193, 255, 0.3);
 	box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+.partner-logo {
+	max-width: 180px;
+	max-height: 120px;
+	width: auto;
+	height: auto;
+	object-fit: contain;
 }
 .slider-btn {
 	position: absolute;
