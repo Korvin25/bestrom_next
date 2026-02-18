@@ -20,10 +20,7 @@
 							<NuxtImg
 								:src="resolveImage(entity.logo)"
 								:alt="entity.alt || modalTitle"
-								fit="contain"
-								background="ffffff"
-								width="200"
-								height="120" />
+								class="modal-logo-img" />
 						</div>
 
 						<!-- Описание -->
@@ -201,6 +198,8 @@ onMounted(() => {
 
 .modal-logo img {
 	max-width: 100%;
+	max-height: 200px;
+	width: auto;
 	height: auto;
 	object-fit: contain;
 }
