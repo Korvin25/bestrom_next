@@ -280,13 +280,13 @@ const isActive = (item: { path: string }) => route.path === item.path || route.p
 
 const scrollToTop = () => {
 	showMobileMenu.value = false
-	if (process.client) {
+	if (import.meta.client) {
 		window.scrollTo(0, 0)
 	}
 }
 
 const lockBody = (isLocked: boolean) => {
-	if (process.client) {
+	if (import.meta.client) {
 		document.body.classList.toggle('modal-open', isLocked)
 	}
 }
