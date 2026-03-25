@@ -17,13 +17,10 @@
 
 			<div class="flex-row">
 				<img class="location-pin" src="/assets/location_pin.png" alt="location" />
-				<p v-if="content.length > 0">
-					{{
-						language === 'RU'
-							? findContent('Головной офис')?.text
-							: findContent('Головной офис')?.text_en
-					}}
-				</p>
+				<div
+					v-if="content.length > 0"
+					class="contact-text"
+					v-html="language === 'RU' ? findContent('Головной офис')?.text : findContent('Головной офис')?.text_en"></div>
 			</div>
 			<iframe
 				title="Bestrom map"
@@ -43,41 +40,41 @@
 				<div class="main-contacts-card flex-column">
 					<div>
 						<h5>{{ language === 'RU' ? 'Общий:' : 'General:' }}</h5>
-						<p>{{ findContent('Общий')?.text }}</p>
+						<div class="contact-text" v-html="findContent('Общий')?.text"></div>
 					</div>
 					<div>
 						<h5>{{ language === 'RU' ? 'Сервисная служба:' : 'Customer Service:' }}</h5>
-						<p>{{ findContent('Сервисная служба')?.text }}</p>
+						<div class="contact-text" v-html="findContent('Сервисная служба')?.text"></div>
 					</div>
 					<div>
 						<h5>{{ language === 'RU' ? 'Отдел запчастей:' : 'Spare Parts Department:' }}</h5>
-						<p>{{ findContent('Отдел запчастей')?.text }}</p>
+						<div class="contact-text" v-html="findContent('Отдел запчастей')?.text"></div>
 					</div>
 				</div>
 				<div class="main-contacts-card flex-column">
 					<div>
 						<h5>{{ language === 'RU' ? 'Секретарь:' : 'Secretary:' }}</h5>
-						<p>{{ findContent('Секретарь')?.text }}</p>
+						<div class="contact-text" v-html="findContent('Секретарь')?.text"></div>
 					</div>
 					<div>
 						<h5>
 							{{ language === 'RU' ? 'Коммерческий отдел и отдел продаж:' : 'Commercial and Sales Department:' }}
 						</h5>
-						<p>{{ findContent('Коммерческий отдел и отдел продаж')?.text }}</p>
+						<div class="contact-text" v-html="findContent('Коммерческий отдел и отдел продаж')?.text"></div>
 					</div>
 					<div>
 						<h5>{{ language === 'RU' ? 'Отдел снабжения:' : 'Supply Department:' }}</h5>
-						<p>{{ findContent('Отдел снабжения')?.text }}</p>
+						<div class="contact-text" v-html="findContent('Отдел снабжения')?.text"></div>
 					</div>
 				</div>
 				<div class="main-contacts-card flex-column">
 					<div>
 						<h5>{{ language === 'RU' ? 'Бухгалтерия:' : 'Accounting:' }}</h5>
-						<p>{{ findContent('Бухгалтерия')?.text }}</p>
+						<div class="contact-text" v-html="findContent('Бухгалтерия')?.text"></div>
 					</div>
 					<div>
 						<h5>E-mail:</h5>
-						<p>{{ findContent('E-mail')?.text }}</p>
+						<div class="contact-text" v-html="findContent('E-mail')?.text"></div>
 					</div>
 					<div>
 						<h5>{{ language === 'RU' ? 'Реквизиты' : 'Requisites' }}:</h5>
@@ -243,7 +240,8 @@ onMounted(() => {
 .main-contacts-card h5 {
 	margin: 0;
 }
-.main-contacts-card p {
+.main-contacts-card p,
+.contact-text {
 	margin: 0.5rem 0 1rem 0;
 }
 .dilers {
