@@ -14,7 +14,8 @@ export default defineNuxtConfig({
       title: 'БЕСТРОМ',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'format-detection', content: 'telephone=no' }
+        { name: 'format-detection', content: 'telephone=no' },
+        { name: 'yandex-verification', content: '122178e1de049867' }
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico' }
