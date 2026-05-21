@@ -65,6 +65,14 @@
 				<img class="nav-contact-icon" src="/assets/telegram.png" alt="Telegram" />
 			</a>
 			<a
+				href="https://max.ru/join/Q5VRTwolebrOlj03DyeZyx74CK7-8Ol05pRktwOP-tc"
+				:class="hoverItem === 15 ? 'logo-hover' : ''"
+				class="nav-item img logo contact-icon"
+				@mouseenter="hoverItem = 15"
+				@mouseleave="hoverItem = 0">
+				<img class="nav-contact-icon" src="/assets/Max_logo.png" alt="Max" />
+			</a>
+			<a
 				href="https://rutube.ru/channel/38819375/"
 				:class="hoverItem === 13 ? 'logo-hover' : ''"
 				class="nav-item img logo contact-icon"
@@ -139,6 +147,14 @@
 				<p>Telegram</p>
 			</a>
 			<a
+				href="https://max.ru/join/Q5VRTwolebrOlj03DyeZyx74CK7-8Ol05pRktwOP-tc"
+				:class="hoverItem === 15 ? 'text-hover' : ''"
+				class="nav-item text"
+				@mouseenter="hoverItem = 15"
+				@mouseleave="hoverItem = 0">
+				<p>Max</p>
+			</a>
+			<a
 				href="https://rutube.ru/channel/38819375/"
 				:class="hoverItem === 13 ? 'text-hover' : ''"
 				class="nav-item text"
@@ -168,13 +184,16 @@
 				<p class="mobile-menu-title">{{ language === 'RU' ? 'Меню' : 'Menu' }}</p>
 				<div class="mobile-menu-footer">
 					<a href="https://vk.com/bestrom_official">
-						<img class="social-icon" src="/assets/vk.png" alt="VK" />
+						<img class="social-icon social-icon--dark" src="/assets/vk.png" alt="VK" />
 					</a>
 					<a href="https://t.me/bestrom_official">
 						<img class="social-icon" src="/assets/telegram.png" alt="Telegram" />
 					</a>
+					<a href="https://max.ru/join/Q5VRTwolebrOlj03DyeZyx74CK7-8Ol05pRktwOP-tc">
+						<img class="social-icon" src="/assets/Max_logo.png" alt="Max" />
+					</a>
 					<a href="https://rutube.ru/channel/38819375/">
-						<img class="social-icon" src="/assets/rutube1.png" alt="Rutube" />
+						<img class="social-icon social-icon--dark" src="/assets/rutube1.png" alt="Rutube" />
 					</a>
 				</div>
 
@@ -637,6 +656,8 @@ const showModalMenuContactsClick = () => {
 	.social-icon {
 		width: 22px;
 		height: 22px;
+	}
+	.social-icon--dark {
 		filter: brightness(0.45) contrast(1.2);
 	}
 	.mobile-menu-modal-enter-active {

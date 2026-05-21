@@ -107,6 +107,11 @@
 					class="social-logo">
 					<img src="/assets/telegram.png" alt="Telegram" />
 				</a>
+				<a
+					:href="findContent('max')?.text || 'https://max.ru/join/Q5VRTwolebrOlj03DyeZyx74CK7-8Ol05pRktwOP-tc'"
+					class="social-logo">
+					<img src="/assets/Max_logo.png" alt="Max" />
+				</a>
 				<a href="https://rutube.ru/channel/38819375/" class="social-logo">
 					<img src="/assets/rutube1.png" alt="Rutube" />
 				</a>
@@ -283,12 +288,12 @@ onMounted(() => {
 	width: 20px;
 	height: 20px;
 }
-.social-logo:nth-child(3) img {
+.social-logo:nth-child(4) img {
 	width: 24px;
 	height: 24px;
 }
 .social-logo:nth-child(1) img,
-.social-logo:nth-child(3) img {
+.social-logo:nth-child(4) img {
 	filter: brightness(0.3) contrast(1.1);
 }
 .social-logo:hover {
