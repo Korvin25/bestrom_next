@@ -217,6 +217,7 @@ interface NewsItem {
 	mini_description_en?: string
 	img?: string
 	published: string
+	link?: string
 }
 
 interface PartnerItem {

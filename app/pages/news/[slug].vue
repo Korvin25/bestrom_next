@@ -9,8 +9,20 @@
 		</section>
 
 		<!-- Изображение новости -->
-		<div v-if="newsItem.img" class="news-image-wrapper">
+		<div v-if="newsItem.img" class="news-image-wrapper" :class="{ 'has-link': newsItem.link }">
+			<a v-if="newsItem.link" :href="newsItem.link" target="_blank" rel="noopener noreferrer" class="news-image-link">
+				<NuxtImg
+					class="news-image"
+					:src="resolveImage(newsItem.img)"
+					:alt="language === 'RU' ? newsItem.name : newsItem.name_en || newsItem.name"
+					fit="contain"
+					background="ffffff"
+					width="920"
+					height="520"
+					itemprop="image" />
+			</a>
 			<NuxtImg
+				v-else
 				class="news-image"
 				:src="resolveImage(newsItem.img)"
 				:alt="language === 'RU' ? newsItem.name : newsItem.name_en || newsItem.name"
@@ -76,6 +88,7 @@ interface NewsItem {
 	seo_title_en?: string
 	seo_description?: string
 	seo_description_en?: string
+	link?: string
 }
 
 const appStore = useAppStore()
@@ -233,11 +246,23 @@ watch([language, newsItem], () => {
 	background: #f8fafc;
 }
 
+.news-image-link {
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+}
+
 .news-image {
 	width: 100%;
 	height: auto;
 	display: block;
 	object-fit: contain;
+	transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+}
+
+.news-image-wrapper.has-link:hover .news-image {
+	transform: scale(1.015);
+	filter: brightness(0.96);
 }
 
 /* Карточка контента */
